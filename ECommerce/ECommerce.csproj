@@ -68,7 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Domain\Views\AdminSignIn.xaml">
+    <Page Include="Domain\Views\AdminMenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Views\AdminSignInUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,8 +105,11 @@
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />
     <Compile Include="Domain\ViewModels\ProductInfoViewModel.cs" />
-    <Compile Include="Domain\Views\AdminSignIn.xaml.cs">
-      <DependentUpon>AdminSignIn.xaml</DependentUpon>
+    <Compile Include="Domain\Views\AdminMenuUC.xaml.cs">
+      <DependentUpon>AdminMenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Views\AdminSignInUC.xaml.cs">
+      <DependentUpon>AdminSignInUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

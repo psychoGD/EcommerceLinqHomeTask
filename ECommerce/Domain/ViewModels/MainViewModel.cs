@@ -45,6 +45,7 @@ namespace ECommerce.Domain.ViewModels
         public bool IsLower { get; set; } = false;
         public RelayCommand ToLowerCommand { get; set; }
         public RelayCommand SelectProductCommand { get; set; }
+        public RelayCommand AdminMenuCommand { get; set; }
         public MainViewModel(IRepository<Product> productRepo)
         {
             FilterText = "Lower To Higher";
@@ -79,7 +80,13 @@ namespace ECommerce.Domain.ViewModels
                 view.ShowDialog();
 
             });
-
+            AdminMenuCommand = new RelayCommand((o) =>
+            {
+                var vm = new AdminSignInViewModel();
+                var view = new AdminSignInUC();
+                view.DataContext = vm;
+                App.MainGrid.Children.Add(view);
+            });
         }
     }
 }

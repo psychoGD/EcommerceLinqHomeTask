@@ -27,14 +27,17 @@ namespace ECommerce.Domain.ViewModels
 		}
 
 		public RelayCommand LoginCommand { get; set; }
-		
+		public RelayCommand BackCommand { get; set; }
 		public AdminSignInViewModel()
 		{
 			LoginCommand = new RelayCommand(o =>
 			{
-				MessageBox.Show("Login command yazilmayib");
-				///Admin Menu Yazilacaq bu hisseye
-			}); 
+				
+			});
+			BackCommand = new RelayCommand(o =>
+			{
+				App.MainGrid.Children.RemoveAt(App.MainGrid.Children.Count-1);
+			});
 		}
 	}
 }

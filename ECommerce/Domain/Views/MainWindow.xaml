@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ECommerce" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Name="MyWindow">
-    <Grid>
+    <Grid x:Name="MyGrid">
         <StackPanel>
             <Border BorderThickness="0,0,0,5" BorderBrush="Orange">
 
@@ -29,7 +29,8 @@
                     Foreground="White"
                     FontWeight="ExtraBlack"
                     BorderThickness="0"
-                    FontSize="25"></Button>
+                    FontSize="25"
+                        Command="{Binding AdminMenuCommand}"></Button>
                 </StackPanel>
             </Border>
 

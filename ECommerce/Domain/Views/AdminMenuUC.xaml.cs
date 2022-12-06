@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ECommerce.Domain.Views
 {
     /// <summary>
-    /// Interaction logic for AdminSignIn.xaml
+    /// Interaction logic for AdminMenuUC.xaml
     /// </summary>
-    public partial class AdminSignIn : Window
+    public partial class AdminMenuUC : UserControl
     {
-        public AdminSignIn()
+        public AdminMenuUC()
         {
             InitializeComponent();
         }

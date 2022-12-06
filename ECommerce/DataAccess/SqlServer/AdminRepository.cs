@@ -13,7 +13,9 @@ namespace ECommerce.DataAccess.SqlServer
         public ECommerceDataClassesDataContext datacontext;
         public void AddData(Admin data)
         {
-            datacontext
+            datacontext.Admins.InsertOnSubmit(data);
+            datacontext.SubmitChanges();
+
         }
 
         public void DeleteData(Admin data)
