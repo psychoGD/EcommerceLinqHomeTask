@@ -24,7 +24,8 @@ namespace ECommerce.DataAccess.SqlServer
 
         public void DeleteData(Order data)
         {
-            throw new NotImplementedException();
+            _dataContext.Orders.DeleteOnSubmit(data);
+            _dataContext.SubmitChanges();
         }
 
         public ObservableCollection<Order> GetAllData()

@@ -99,8 +99,10 @@
     <Compile Include="Domain\Abstractions\IOrderRepository.cs" />
     <Compile Include="Domain\Abstractions\IProductRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
+    <Compile Include="Domain\Services\AdminService.cs" />
     <Compile Include="Domain\Services\CustomerService.cs" />
     <Compile Include="Domain\Services\ProductService.cs" />
+    <Compile Include="Domain\ViewModels\AdminMenuViewModel.cs" />
     <Compile Include="Domain\ViewModels\AdminSignInViewModel.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainViewModel.cs" />

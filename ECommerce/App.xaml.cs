@@ -15,5 +15,10 @@ namespace ECommerce
     public partial class App : Application
     {
         public static Grid MainGrid;
+
+        public static void DeleteLastView()
+        {
+            MainGrid.Children.RemoveAt(MainGrid.Children.Count - 1);
+        }
     }
 }

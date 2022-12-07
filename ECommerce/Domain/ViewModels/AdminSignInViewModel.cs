@@ -1,4 +1,7 @@
 ﻿using ECommerce.Commands;
+using ECommerce.DataAccess.SqlServer;
+using ECommerce.Domain.Services;
+using ECommerce.Domain.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,8 @@ namespace ECommerce.Domain.ViewModels
 {
     public class AdminSignInViewModel:BaseViewModel
     {
-		private string username;
+        private readonly AdminService _adminService;
+        private string username;
 
 		public string Username
 		{
@@ -30,11 +34,31 @@ namespace ECommerce.Domain.ViewModels
 		public RelayCommand BackCommand { get; set; }
 		public AdminSignInViewModel()
 		{
-			LoginCommand = new RelayCommand(o =>
-			{
-				
-			});
-			BackCommand = new RelayCommand(o =>
+            _adminService= new AdminService();
+            LoginCommand = new RelayCommand(o =>
+            {
+                Admin admin = _adminService.GetAdminByUsername(username);
+                if (admin != null)
+                {
+                    if (admin.Password == Password)
+                    {
+                        App.DeleteLastView();
+                        var view = new AdminMenuUC();
+                        view.DataContext = new AdminMenuViewModel();
+                        App.MainGrid.Children.Add(view);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password Or Username Incorrect");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Password Or Username Incorrect");
+                }
+
+            });
+            BackCommand = new RelayCommand(o =>
 			{
 				App.MainGrid.Children.RemoveAt(App.MainGrid.Children.Count-1);
 			});

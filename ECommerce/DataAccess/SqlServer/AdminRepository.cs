@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,17 @@ namespace ECommerce.DataAccess.SqlServer
 {
     public class AdminRepository : IAdminRepository
     {
-        public ECommerceDataClassesDataContext datacontext;
+        private ECommerceDataClassesDataContext _datacontext;
+
+        public AdminRepository()
+        {
+            _datacontext= new ECommerceDataClassesDataContext();
+        }
+
         public void AddData(Admin data)
         {
-            datacontext.Admins.InsertOnSubmit(data);
-            datacontext.SubmitChanges();
+            _datacontext.Admins.InsertOnSubmit(data);
+            _datacontext.SubmitChanges();
 
         }
 
@@ -25,7 +32,9 @@ namespace ECommerce.DataAccess.SqlServer
 
         public ObservableCollection<Admin> GetAllData()
         {
-            throw new NotImplementedException();
+            var admins = from c in _datacontext.Admins
+                            select c;
+            return new ObservableCollection<Admin>(admins);
         }
 
         public Admin GetData(int id)

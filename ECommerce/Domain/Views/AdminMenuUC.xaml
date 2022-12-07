@@ -52,34 +52,41 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    <Grid Background="White">
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
         </Grid.RowDefinitions>-->
+        <Button Width="100" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                Command="{Binding BackCommand}" Content="Back"></Button>
         <TabControl BorderThickness="0,3,0,0" BorderBrush="#21B9BD">
             <TabItem Header="Products">
-                <ListView ItemsSource="{Binding Products,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid ItemsSource="{Binding Products,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
 
-                </ListView>
+                </DataGrid>
             </TabItem>
             <TabItem Header="Orders">
-                <ListView ItemsSource="{Binding Orders,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid ItemsSource="{Binding Orders,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
 
-                </ListView>
+                </DataGrid>
             </TabItem>
             <TabItem Header="Add Product">
                 <StackPanel>
                     <TextBlock Text="Product Name" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBox Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    
                     <TextBlock Text="Product Description" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBox Text="{Binding Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    
                     <TextBlock Text="Product Price" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBox Text="{Binding Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    
                     <TextBlock Text="Product Discount" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBox Text="{Binding Discount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    
                     <TextBlock Text="Product Quantity" Style="{StaticResource TxtBlock}"></TextBlock>
-                    <TextBox Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    <TextBox Text="{Binding Quantity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SignInTextBox}" Width="300" ></TextBox>
+                    
                     <Button Width="200" Background="Black" 
                     Foreground="White" Height="35"
                     Content="Add Product" FontSize="20"
